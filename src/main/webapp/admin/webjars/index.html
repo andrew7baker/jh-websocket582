@@ -21,10 +21,10 @@
             $("#greetings").html("");
         }
 
-        var access_token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTU2NjQwMTY2MH0.d65QrRlttq8O_AehYoSM8n1fvTNCnmSS8wn8ZpmyJiUEnSGZuOHLDHTHGxsgPp4BJ9qP3LkE6ioCJsUiBE1gtg";
+        var access_token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTU2NzAxNDc1NH0.y7d1mLyfYsIYjp_BT-ANos7g83umh4SmRit2ZhztoLPVEj1-oeqs2YAlyzcEAw300JK-QTqNj11treUB663wMA";
         function connect() {
             alert("connecting")
-            var socket = new SockJS('/websocket/tracker?access_token='+access_token);
+            var socket = new SockJS('/gs-guide-websocket?access_token='+access_token);
             stompClient = Stomp.over(socket);
             stompClient.connect({}, function (frame) {
                 setConnected(true);
