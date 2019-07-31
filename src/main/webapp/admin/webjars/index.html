@@ -24,12 +24,13 @@
         var access_token="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTU2NzAxNDc1NH0.y7d1mLyfYsIYjp_BT-ANos7g83umh4SmRit2ZhztoLPVEj1-oeqs2YAlyzcEAw300JK-QTqNj11treUB663wMA";
         function connect() {
             alert("connecting")
-            var socket = new SockJS('/gs-guide-websocket?access_token='+access_token);
+            var socket = new SockJS('/websocket/tracker?access_token='+access_token);
             stompClient = Stomp.over(socket);
             stompClient.connect({}, function (frame) {
                 setConnected(true);
                 console.log('Connected: ' + frame);
                 stompClient.subscribe('/topic/greetings', function (greeting) {
+                    con
                     showGreeting(JSON.parse(greeting.body).content);
                 });
             });
